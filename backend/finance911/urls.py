@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from ninja import NinjaAPI
+from income.api.views import router as income_router
+
+api = NinjaAPI()
+api.add_router('/api/', income_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('income/', include('income.urls')),
+    # path('api/', app.urls),
+    path('', api.urls),
 ]
