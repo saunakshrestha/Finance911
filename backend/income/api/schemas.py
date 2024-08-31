@@ -15,7 +15,7 @@ class IncomeSchema(Schema):
     amount: Decimal
     description: str = None
     date: date
-    user: Optional[UserSchema] = None
+    # user: Optional[UserSchema] = None
     created_at: datetime
     updated_at: datetime
 
@@ -24,4 +24,4 @@ class CreateIncomeSchema(BaseModel):
     amount: Decimal
     description: Optional[str] = None
     date: datetime = Field(default_factory=date.today)
-    user_id: Optional[int] = None
+    # user_id: Optional[int] = None
